@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
 
-  get 'about/index'
   root to: 'products#index'
 
   resources :products, only: [:index, :show]
   resources :categories, only: [:show]
   resources :about, only: [:index]
+  resources :categories, only: [:index, :new, :create]
 
   resource :cart, only: [:show] do
     post   :add_item
